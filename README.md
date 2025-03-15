@@ -1,0 +1,1 @@
+This is an online appointment scheduling project that not only allows clinics and medical and beauty centers to book appointments, but also allows them to sell related training packages. Other features of this project include the ability to introduce services and members of the group and provide communication channels to site users.
