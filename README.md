@@ -18,7 +18,7 @@ This is a Django-based online appointment booking system designed for medical cl
 - Email Notifications: Send booking confirmations and reminders  
 
 ## Technologies Used  
-- Backend: Django, Django REST Framework  
+- Backend: Django  
 - Database: SQLite  
 - Frontend: HTML, CSS 
 - Authentication: Django’s built-in authentication system  
