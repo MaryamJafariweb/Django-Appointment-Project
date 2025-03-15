@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h3>بررسی نهایی</h3>
+    <p> مجموع:{{ order.get_total_price }}</p>
+    <button class="btn btn-primary">پرداخت</button>
+    <form method="post" action="{% url 'ordering:apply_coupon' order.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="اعمال">
+    </form>
+{% endblock %}

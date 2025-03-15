@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <img src="{{ details.image.url }}" alt="/"> </br>
+    {{ details.name }}
+    {{ details.description }}
+    {{ details.price}}
+    {{ details.offer }}
+    <form action="{% url 'ordering:cart_add' details.id %}" method="post">
+        {% csrf_token %}
+        {{ form_cart }}
+        <input type="submit" value="Send To Cart">
+    </form>
+<h3>ثبت نظرات</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+{#        {{ form.name }}#}
+{#        {{ form.email}}#}
+{#        {{ form.body }}#}
+        <input type="submit" value="SEND">
+    </form>
+    <h3>نظرات</h3>
+    {% for comment in comments %}
+        {{ comment.name }}
+{#        {{ comment.email }}#}
+        {{ comment.body }}
+    {% empty %}
+        <p>هیچ دیدگاهی وجود ندارد</p>
+    {% endfor %}
+
+{% endblock %}

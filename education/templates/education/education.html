@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% for education in educations %}
+        <img src="{{ education.image.url }}" alt="/"> </br>
+        <a href="{% url 'education:education_detail' education.id education.slug %}" >{{ education.name }}</a> </br>
+        {{ education.short_description }} </br>
+        {{ education.price }} | {{ education.offer }}
+    {% endfor %}
+{% endblock %}

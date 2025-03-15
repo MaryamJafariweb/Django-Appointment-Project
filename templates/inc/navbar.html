@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="navbar-nav">
+            <a class="navbar-brand" active href="{% url 'home:home' %}">صفحه اصلی</a>
+            <a class="navbar-brand" active href="{% url 'about:about' %}">درباره ما</a>
+            <a class="navbar-brand" active href="{% url 'blog:blog' %}">بلاگ</a>
+            <a class="navbar-brand" active href="{% url 'contact:contact' %}">تماس با ما</a>
+            <a class="navbar-brand" active href="{% url 'education:education_list' %}">آموزش ها</a>
+            <a class="navbar-brand" active href="{% url 'service:service' %}">خدمات</a>
+            <a class="navbar-brand" active href="{% url 'reserve:typeservice' %}">رزرو نوبت</a>
+            {% if request.user.is_authenticated %}
+                <a class="navbar-brand" active href="{% url 'accounts:change_password' %}">نغییر پسورد</a>
+                <a class="navbar-brand" active href="{% url 'accounts:user_logout' %}">خروج</a>
+            {% else %} 
+                 <a class="navbar-brand" active href="{% url 'accounts:user_register' %}">ثبت نام</a>
+                 <a class="navbar-brand" active href="{% url 'accounts:user_login' %}">ورود</a>
+            {% endif %}
+            
+        </div>
+    </div>
+</nav>

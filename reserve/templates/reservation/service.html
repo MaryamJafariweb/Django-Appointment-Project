@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+     {% for service in services %}
+        <a href="{% url 'reservation:reservation' service.id %}">{{ service.name }}</a>
+    {% endfor %}
+{% endblock %}

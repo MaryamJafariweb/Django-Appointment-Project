@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <p>INFO</p>
+
+    {% for infos in info %}
+        {{ infos.description }}
+        {{ infos.phone }}
+        {{ infos.email }}
+    {% endfor %}
+
+    <p>Form Comments</p>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.name }}
+        {{ form.image }}
+        {{ form.body }}
+        <input type="submit" value="SEND">
+
+    </form>
+
+    <p>Comment</p>
+    {% for comment in comments %}
+        {{ comment.name }}
+        <img src="{{ comment.image.url }}" alt="/">
+        {{ comment.body }}
+    {% empty %}
+        <p>دیدگاهی وجود ندارد!</p>
+    {% endfor %}
+
+
+
+{% endblock %}

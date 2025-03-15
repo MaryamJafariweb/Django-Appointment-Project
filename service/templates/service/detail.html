@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {{ service.title }}
+     <img src="{{ service.image1.url }}" alt="/">
+    {{ service.body }}
+    {{ service.title1 }}
+     <img src="{{ service.image2.url }}" alt="/">
+    {{ service.body1 }}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% for info in info %}
+        {{ info.address }}
+        {{ info.phone1 }}
+        {{ info.phone2 }}
+        {{ info.phone3 }}
+        {{ info.email }}
+    {% endfor %}
+
+    <form method="post" action="" novalidate>
+        {% csrf_token %}
+        {{ form.full_name }}
+        {{ form.email }}
+        {{ form.phone }}
+        {{ form.subject }}
+        {{ form.body }}
+        <input type="submit" value="Send">
+    </form>
+
+
+{% endblock %}

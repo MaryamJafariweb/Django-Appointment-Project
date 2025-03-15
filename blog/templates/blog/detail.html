@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load jformat %}
+{% block content %}
+
+        <img src="{{ blog.image.url }}" alt="/">
+        {{ blog.title }}
+        {{ blog.description }}
+        {{ blog.created|jformat:"%A %d %B %Y %H:%M"}}
+
+        {% for comment in comments %}
+            {{ comment.author }}
+            {{ comment.body }}
+            {{ comment.created |jformat:"%A %d %B %Y %H:%M" }}
+
+        {% empty %}
+            <p>دیدگاهی وجود ندارد</p>
+        {% endfor %}
+
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.author }}
+            {{ form.email }}
+            {{ form.body }}
+            <input type="submit" value="SEND">
+        </form>
+
+
+{% endblock %}

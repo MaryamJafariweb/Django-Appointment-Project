@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% for blog in blogs %}
+        <img src="{{ blog.image.url }}" alt="/">
+        {{ blog.title }}
+        {{ blog.description| truncatewords:10  }}
+        {{ blog.created | timesince }}
+    {% endfor %}
+
+{% endblock %}
